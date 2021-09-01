@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "691911654124",
+    "project_id": "jeezyfashionapp",
+    "storage_bucket": "jeezyfashionapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691911654124:android:3525bf33cdd6724824c3c9",
+        "android_client_info": {
+          "package_name": "com.jenni.jeezyfashion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691911654124-i6dfdkqbd1p2m6fn379hc2kj60j5n6k7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jenni.jeezyfashion",
+            "certificate_hash": "22c528bee284c071ae97743f2018877ede3557b7"
+          }
+        },
+        {
+          "client_id": "691911654124-s4e974nhhnjs9frklqbnlga9vv42ag8l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVFPKfoowV6m4c_Wd76s2gvhoU6wkOVwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691911654124-s4e974nhhnjs9frklqbnlga9vv42ag8l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
