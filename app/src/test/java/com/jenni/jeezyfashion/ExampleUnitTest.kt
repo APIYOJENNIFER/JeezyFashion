@@ -1,4 +1,4 @@
-package com.example.jeezyfashion
+package com.jenni.jeezyfashion
 
 import org.junit.Test
 

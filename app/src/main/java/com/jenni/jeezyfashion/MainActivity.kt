@@ -1,4 +1,4 @@
-package com.example.jeezyfashion
+package com.jenni.jeezyfashion
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
