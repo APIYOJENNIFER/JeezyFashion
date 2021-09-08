@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JeezyFashion</string>
+    <string name="login">Login</string>
+    <string name="attribution"><![CDATA[<a href=\'https://www.freepik.com/vectors/woman\'>Woman vector created by freepik - www.freepik.com</a>]]></string>
 </resources>
