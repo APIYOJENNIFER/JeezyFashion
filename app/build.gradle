@@ -17,6 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -61,7 +62,32 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
+    //Glide
     def glide_version = "4.12.0"
     implementation "com.github.bumptech.glide:glide:$glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    // ViewModel and LiveData
+    def lifecycle_version = '2.2.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // Retrofit
+    def retrofitVersion = "2.5.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // RxJava
+    def rxjava_version = '2.1.1'
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+
+    // Rx-Retrofit Call Adapter
+    def rxcalladapter_version = '2.5.0'
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version" // Retrofit call adapter
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // Reactive Streams (convert Observable to LiveData)
+    def reactivestreams_version = "1.1.1"
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
+
 }

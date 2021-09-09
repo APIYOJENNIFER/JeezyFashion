@@ -9,8 +9,16 @@ import com.jenni.jeezyfashion.BaseApplication
 import dagger.BindsInstance
 import com.jenni.jeezyfashion.di.AppComponent
 import dagger.Component
+import javax.inject.Singleton
 
-@Component(modules = [AndroidSupportInjectionModule::class, ActivityBuildersModule::class, AppModule::class])
+@Singleton
+@Component(modules = [
+    AndroidSupportInjectionModule::class,
+    ActivityBuildersModule::class,
+    AppModule::class,
+    ViewModelFactoryModule::class,
+
+])
 interface AppComponent : AndroidInjector<BaseApplication?> {
     @Component.Builder
     interface Builder {

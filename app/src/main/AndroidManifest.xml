@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jenni.jeezyfashion">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -11,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JeezyFashion">
         <activity
-            android:name="com.jenni.jeezyfashion.LoginActivity"
+            android:name="com.jenni.jeezyfashion.ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
