@@ -1,5 +1,6 @@
 package com.jenni.jeezyfashion.ui.login
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.TextUtils
@@ -12,6 +13,7 @@ import com.bumptech.glide.RequestManager
 import com.jenni.jeezyfashion.R
 import com.jenni.jeezyfashion.models.User
 import com.jenni.jeezyfashion.network.auth.AuthResource
+import com.jenni.jeezyfashion.ui.main.MainActivity
 import com.jenni.jeezyfashion.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -67,6 +69,7 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
                     AuthResource.AuthStatus.LOADING -> showProgressBar(true)
                     AuthResource.AuthStatus.AUTHENTICATED -> {
                         showProgressBar(false)
+                        onLoginSuccess()
                         Log.d(TAG, "subscribeObservers: LOGIN SUCCESSFUL " + authUser.data?.email)
                     }
                     AuthResource.AuthStatus.ERROR -> {
@@ -78,7 +81,7 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
                 }
             }
         }
-        viewModel.observeUser().observe(this, userObserver)
+        viewModel.observeAuthState().observe(this, userObserver)
     }
 
     private fun showProgressBar(isVisible: Boolean) {
@@ -87,5 +90,11 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
         } else {
             progress_bar.visibility = View.GONE
         }
+    }
+
+    private fun onLoginSuccess(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

@@ -6,6 +6,7 @@ import com.jenni.jeezyfashion.di.ActivityBuildersModule
 import com.jenni.jeezyfashion.di.AppModule
 import dagger.android.AndroidInjector
 import com.jenni.jeezyfashion.BaseApplication
+import com.jenni.jeezyfashion.SessionManager
 import dagger.BindsInstance
 import com.jenni.jeezyfashion.di.AppComponent
 import dagger.Component
@@ -20,6 +21,7 @@ import javax.inject.Singleton
 
 ])
 interface AppComponent : AndroidInjector<BaseApplication?> {
+    val sessionManager:SessionManager
     @Component.Builder
     interface Builder {
         @BindsInstance

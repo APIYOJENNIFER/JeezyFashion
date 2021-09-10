@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentDashboard">
+
+    <fragment
+        android:id="@+id/fragmentDashboard"
+        android:name="com.jenni.jeezyfashion.ui.dashboard.DashboardFragment"
+        android:label="@string/jeezy_fashion"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/dashboardToDresses"
+            app:destination="@id/fragmentDresses" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDresses"
+        android:name="com.jenni.jeezyfashion.ui.dresses.DressesFragment"
+        android:label="Dresses"
+        tools:layout="@layout/fragment_dresses" />
+
+</navigation>

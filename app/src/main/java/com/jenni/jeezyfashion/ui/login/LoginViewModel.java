@@ -9,6 +9,7 @@ import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 
+import com.jenni.jeezyfashion.SessionManager;
 import com.jenni.jeezyfashion.models.User;
 import com.jenni.jeezyfashion.network.auth.AuthApi;
 import com.jenni.jeezyfashion.network.auth.AuthResource;
@@ -22,24 +23,29 @@ import io.reactivex.schedulers.Schedulers;
 public class LoginViewModel extends ViewModel {
     private static final String TAG = "LoginViewModel";
     private final AuthApi authApi;
-    private MediatorLiveData<AuthResource<User>> authUser = new MediatorLiveData<>();
+    private SessionManager sessionManager;
 
     @Inject
-    public LoginViewModel(AuthApi authApi) {
+    public LoginViewModel(AuthApi authApi, SessionManager sessionManager) {
         this.authApi = authApi;
+        this.sessionManager = sessionManager;
         Log.d(TAG, "LoginViewModel: is working...");
     }
 
-    public void authenticateWithId(int userId){
-        authUser.setValue(AuthResource.loading(null));
-        final LiveData<AuthResource<User>> source = LiveDataReactiveStreams.fromPublisher(
+    public void authenticateWithId(int userId) {
+        Log.d(TAG, "authenticateWithId: attempting to login...");
+        sessionManager.authenticateWithId(queryUserId(userId));
+    }
+
+    private LiveData<AuthResource<User>> queryUserId(int userId){
+        return LiveDataReactiveStreams.fromPublisher(
                 authApi.getUser(userId)
                         .onErrorReturn(new Function<Throwable, User>() {
                             @NonNull
                             @Override
                             public User apply(@NonNull Throwable throwable) throws Exception {
-                               User errorUser = new User();
-                               errorUser.setId(-1);
+                                User errorUser = new User();
+                                errorUser.setId(-1);
                                 return errorUser;
                             }
                         })
@@ -48,26 +54,18 @@ public class LoginViewModel extends ViewModel {
                             @NonNull
                             @Override
                             public AuthResource<User> apply(@NonNull User user) throws Exception {
-                                if (user.getId()==-1){
+                                if (user.getId() == -1) {
                                     return AuthResource.error("Could not authenticate", null);
 
                                 }
                                 return AuthResource.authenticated(user);
                             }
                         })
-                .subscribeOn(Schedulers.io())
+                        .subscribeOn(Schedulers.io())
         );
-
-        authUser.addSource(source, new Observer<AuthResource<User>>() {
-            @Override
-            public void onChanged(AuthResource<User> user) {
-                authUser.setValue(user);
-                authUser.removeSource(source);
-            }
-        });
     }
 
-    public LiveData<AuthResource<User>> observeUser(){
-        return authUser;
+    public LiveData<AuthResource<User>> observeAuthState() {
+        return sessionManager.getAuthUser();
     }
 }

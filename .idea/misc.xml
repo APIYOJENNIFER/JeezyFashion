@@ -5,6 +5,11 @@
       <map>
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_dresses.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/item_categories.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/nav_header.xml" value="0.234375" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.16111111111111112" />
       </map>
     </option>
   </component>
