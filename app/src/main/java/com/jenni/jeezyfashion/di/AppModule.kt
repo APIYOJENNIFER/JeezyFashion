@@ -2,12 +2,12 @@ package com.jenni.jeezyfashion.di
 
 import android.app.Application
 import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.jenni.jeezyfashion.R
-import com.bumptech.glide.RequestManager
-import com.bumptech.glide.Glide
-import androidx.core.content.ContextCompat
-import com.jenni.jeezyfashion.util.Constants
+import com.jenni.jeezyfashion.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -21,7 +21,7 @@ object AppModule {
     @Provides
     fun provideRetrofitInstance(): Retrofit{
         return Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
+            .baseUrl(BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

@@ -23,4 +23,10 @@
         android:label="Dresses"
         tools:layout="@layout/fragment_dresses" />
 
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.jenni.jeezyfashion.ui.favorites.FavoritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites"/>
+
 </navigation>

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.jenni.jeezyfashion.BaseActivity
 import com.jenni.jeezyfashion.R
@@ -27,6 +28,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private lateinit var toolbar: MaterialToolbar
     private lateinit var navController: NavController
     private lateinit var navigationView: NavigationView
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var tvName: TextView
     private lateinit var tvEmail: TextView
@@ -49,6 +51,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar = findViewById(R.id.toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.nav_view)
+        bottomNavigationView = findViewById(R.id.bottom_nav_view)
         val header = navigationView.getHeaderView(0)
         tvName = header.findViewById(R.id.tv_name)
         tvEmail = header.findViewById(R.id.tv_user_email)
@@ -66,6 +69,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         toolbar.setupWithNavController(navController, appBarConfiguration)
 
         //Connect NavView with NavController
+        bottomNavigationView.setupWithNavController(navController)
         navigationView.setupWithNavController(navController)
         navigationView.setNavigationItemSelectedListener(this)
 
