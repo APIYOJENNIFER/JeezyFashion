@@ -11,4 +11,6 @@
     <string name="nav_menu_favorites">Favorites</string>
     <string name="delete_icon">Delete icon</string>
     <string name="favorite_icon">Favorite icon</string>
+    <string name="submit">Submit</string>
+    <string name="enter_code">Enter Code</string>
 </resources>
