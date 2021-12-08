@@ -1,6 +1,7 @@
 package com.jenni.jeezyfashion.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -74,6 +75,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         navigationView.setNavigationItemSelectedListener(this)
 
         subscribeUser()
+        Log.d("MActivity", "onCreate: MActivity")
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

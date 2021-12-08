@@ -7,57 +7,95 @@
     android:layout_margin="10dp"
     tools:context="com.jenni.jeezyfashion.ui.login.LoginActivity">
 
-    <ImageView
-        android:id="@+id/iv_logo"
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_logo"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:src="@drawable/ic_broken_image"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/tv_attribution"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_chainStyle="packed" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_attribution"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/attribution"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/tv_user_id"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/iv_logo"-->
+    <!--        app:layout_constraintVertical_chainStyle="packed" />-->
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_firstname"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:src="@drawable/ic_broken_image"
-        app:layout_constraintBottom_toTopOf="@id/tv_attribution"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:hint="First Name"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/country_code_picker"
+        app:layout_constraintEnd_toStartOf="@id/tv_user_surname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <TextView
-        android:id="@+id/tv_attribution"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tv_user_surname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/attribution"
-        app:layout_constraintBottom_toTopOf="@id/tv_user_id"
+        android:layout_margin="5dp"
+        android:hint="Surname"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@id/tv_user_firstname"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_user_firstname"
+        app:layout_constraintTop_toTopOf="@id/tv_user_firstname"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/country_code_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:ccp_defaultNameCode="UG"
+        app:ccp_showNameCode="false"
+        app:layout_constraintBottom_toTopOf="@id/btn_submit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo"
+        app:layout_constraintTop_toBottomOf="@id/tv_user_firstname"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tv_user_id"
+        android:id="@+id/tv_user_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="User id"
-        app:layout_constraintBottom_toTopOf="@id/btn_login"
+        android:hint="773123456"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="@id/country_code_picker"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_attribution"
+        app:layout_constraintStart_toEndOf="@id/country_code_picker"
+        app:layout_constraintTop_toTopOf="@id/country_code_picker"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_submit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/login"
+        android:text="@string/submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_user_id"
+        app:layout_constraintTop_toBottomOf="@id/country_code_picker"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
