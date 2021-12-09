@@ -14,6 +14,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.jenni.jeezyfashion.R
 import com.jenni.jeezyfashion.ui.main.MainActivity
+import com.jenni.jeezyfashion.util.PreferenceManager
 import com.jenni.jeezyfashion.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_otp.*
@@ -23,6 +24,7 @@ class OTPActivity : DaggerAppCompatActivity(), View.OnClickListener {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storedVerificationId: String
     private lateinit var viewModel: LoginViewModel
+    private lateinit var preferenceManager: PreferenceManager
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
@@ -30,7 +32,9 @@ class OTPActivity : DaggerAppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_otp)
+        preferenceManager = PreferenceManager(this)
         btn_login.setOnClickListener(this)
+        tv_resend_code.setOnClickListener(this)
 
         viewModel = ViewModelProvider(this, providerFactory).get(LoginViewModel::class.java)
 
@@ -44,7 +48,14 @@ class OTPActivity : DaggerAppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_login -> login()
+            R.id.tv_resend_code -> resendCode()
         }
+    }
+
+    private fun resendCode(){
+        preferenceManager.waitingForCode = false
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 
     private fun login() {
@@ -64,6 +75,7 @@ class OTPActivity : DaggerAppCompatActivity(), View.OnClickListener {
                 if (task.isSuccessful) {
                     val user = task.result?.user
 
+                    preferenceManager.loggedIn = true
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()

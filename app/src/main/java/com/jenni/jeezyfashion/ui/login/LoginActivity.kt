@@ -18,6 +18,7 @@ import com.jenni.jeezyfashion.models.User
 import com.jenni.jeezyfashion.network.auth.AuthResource
 import com.jenni.jeezyfashion.ui.main.MainActivity
 import com.jenni.jeezyfashion.util.Constants.db
+import com.jenni.jeezyfashion.util.PreferenceManager
 import com.jenni.jeezyfashion.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -31,6 +32,7 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
     private lateinit var storedVerificationId: String
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    private lateinit var preferenceManager: PreferenceManager
 
     @Inject
     lateinit var providerFactory: ViewModelProviderFactory
@@ -50,11 +52,13 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseAuth.useAppLanguage()
 
+        preferenceManager = PreferenceManager(this)
+
         viewModel = ViewModelProvider(this, providerFactory).get(LoginViewModel::class.java)
 //        subscribeObservers()
 
-
         authenticateUser()
+        setLoginState()
     }
 
     override fun onClick(view: View?) {
@@ -81,13 +85,14 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
         } else {
             sendVerificationCode()
             showProgressBar(true)
+//            saveUserData()
         }
 
-        val user = hashMapOf(
-            "user_firstname" to tv_user_firstname.text,
-            "user_surname" to tv_user_surname.text,
-            "user_phone" to tv_user_phone.text
-        )
+//        val user = hashMapOf(
+//            "user_firstname" to tv_user_firstname.text,
+//            "user_surname" to tv_user_surname.text,
+//            "user_phone" to tv_user_phone.text
+//        )
 
 //        db.collection("users")
 //            .add(user)
@@ -100,6 +105,23 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
 //        viewModel.authenticateWithId((tv_user_id.text.toString()).toInt())
 
 //        authenticateUser()
+    }
+
+    private fun saveUserData() {
+        val user = hashMapOf(
+            "user_firstname" to tv_user_firstname.text,
+            "user_surname" to tv_user_surname.text,
+            "user_phone" to tv_user_phone.text
+        )
+
+        db.collection("users")
+            .add(user)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding document", e)
+            }
     }
 
     private fun sendVerificationCode() {
@@ -144,6 +166,7 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
                 resendToken = token
 
                 showProgressBar(false)
+                preferenceManager.waitingForCode = true
 
                 val intent = Intent(applicationContext, OTPActivity::class.java)
                 intent.putExtra("storedVerificationId", storedVerificationId)
@@ -159,6 +182,7 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
                 if (task.isSuccessful) {
                     val user = task.result?.user
 
+                    preferenceManager.loggedIn = true
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -204,5 +228,16 @@ class LoginActivity : DaggerAppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun setLoginState() {
+        if (preferenceManager.waitingForCode){
+            val intent = Intent(applicationContext, OTPActivity::class.java)
+            startActivity(intent)
+        }
+        if (preferenceManager.loggedIn){
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
