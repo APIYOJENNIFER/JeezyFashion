@@ -1,312 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:fillViewport="true">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_dresses"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/cv_pants"
-            app:layout_constraintEnd_toStartOf="@+id/cv_shoes"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.recyclerview.widget.RecyclerView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/rv_category"
+                tools:listitem="@layout/item_categories"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent" />
 
-                <ImageView
-                    android:id="@+id/iv_category_dresses"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@id/tv_category_dresses"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_dresses"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/cv_pants"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/cv_shoes"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
 
-                <TextView
-                    android:id="@+id/tv_category_dresses"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Dresses"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_dresses" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_dresses"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@id/tv_category_dresses"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_dresses"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Dresses"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_dresses" />-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_shoes"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/cv_shirts"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cv_dresses"
-            app:layout_constraintTop_toTopOf="parent">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <ImageView
-                    android:id="@+id/iv_category_shoes"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_category_shoes"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_shoes"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/cv_shirts"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/cv_dresses"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
 
-                <TextView
-                    android:id="@+id/tv_category_shoes"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Shoes"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_shoes" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_shoes"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/tv_category_shoes"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_shoes"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Shoes"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_shoes" />-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_pants"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/cv_bags"
-            app:layout_constraintEnd_toStartOf="@+id/cv_shirts"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_dresses">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <ImageView
-                    android:id="@+id/iv_category_pants"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_category_pants"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_pants"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/cv_bags"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/cv_shirts"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/cv_dresses">-->
 
-                <TextView
-                    android:id="@+id/tv_category_pants"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Pants"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_pants" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_pants"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/tv_category_pants"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_pants"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Pants"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_pants" />-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_shirts"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/cv_jewelleries"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cv_pants"
-            app:layout_constraintTop_toBottomOf="@id/cv_shoes">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <ImageView
-                    android:id="@+id/iv_category_shirts"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_category_shirts"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_shirts"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/cv_jewelleries"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/cv_pants"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/cv_shoes">-->
 
-                <TextView
-                    android:id="@+id/tv_category_shirts"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Shirts"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_shirts" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_shirts"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/tv_category_shirts"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_shirts"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Shirts"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_shirts" />-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_bags"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cv_jewelleries"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_pants">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <ImageView
-                    android:id="@+id/iv_category_bags"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_category_bags"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_bags"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/cv_jewelleries"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/cv_pants">-->
 
-                <TextView
-                    android:id="@+id/tv_category_bags"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Bags"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_bags" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_bags"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/tv_category_bags"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_bags"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Bags"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_bags" />-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_jewelleries"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_margin="10dp"
-            android:elevation="5dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cv_bags"
-            app:layout_constraintTop_toBottomOf="@id/cv_shirts">
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--        </androidx.cardview.widget.CardView>-->
 
-                <ImageView
-                    android:id="@+id/iv_category_jewelleries"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@string/placeholder"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder1"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_category_jewelleries"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cv_jewelleries"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:elevation="5dp"-->
+<!--                app:cardBackgroundColor="@android:color/white"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/cv_bags"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/cv_shirts">-->
 
-                <TextView
-                    android:id="@+id/tv_category_jewelleries"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:padding="15dp"
-                    android:scrollHorizontally="true"
-                    android:text="Jewelleries"
-                    android:textColor="@color/text_black"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_category_jewelleries" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <ImageView-->
+<!--                        android:id="@+id/iv_category_jewelleries"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="0dp"-->
+<!--                        android:contentDescription="@string/placeholder"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:src="@drawable/placeholder1"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/tv_category_jewelleries"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-        </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <TextView-->
+<!--                        android:id="@+id/tv_category_jewelleries"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:gravity="center"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="15dp"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:text="Jewelleries"-->
+<!--                        android:textColor="@color/text_black"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/iv_category_jewelleries" />-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

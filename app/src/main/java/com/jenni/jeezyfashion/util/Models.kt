@@ -6,8 +6,9 @@ data class DressesModel(
     var dressImage:String? = null
 )
 
-data class TestModel(
-    var test:String
+data class CategoryModel(
+    var categoryName:String? = null,
+    var categoryImage:String? = null
 )
 
 
